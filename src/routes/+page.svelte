@@ -1,6 +1,7 @@
 <script lang="ts">
   import SpotChallenge from '$lib/SpotChallenge.svelte'
   import SquareChallenge from '$lib/SquareChallenge.svelte'
+  import DotChallenge from '$lib/DotChallenge.svelte';
   import JSConfetti from 'js-confetti'
   import { onMount } from 'svelte'
 
@@ -11,6 +12,9 @@
     {
       component: SpotChallenge,
     },
+    {
+      component: DotChallenge
+    }
   ]
 
   let jsConfetti: JSConfetti
