@@ -66,12 +66,42 @@
 
   let done = $state(false)
 
+  // Stopwatch state
+  let startTime = $state<number | null>(null)
+  let endTime = $state<number | null>(null)
+  let now = $state(Date.now())
+  let elapsed = $derived(startTime ? (endTime ?? now) - startTime : 0)
+
+  function formatElapsed(ms: number) {
+    const totalSeconds = Math.floor(ms / 1000)
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = totalSeconds % 60
+    const centiseconds = Math.floor((ms % 1000) / 10)
+    return `${minutes.toString().padStart(2, '0')}:${seconds
+      .toString()
+      .padStart(2, '0')}.${centiseconds.toString().padStart(2, '0')}`
+  }
+
+  $effect(() => {
+    if (startTime && !endTime) {
+      const id = setInterval(() => {
+        now = Date.now()
+      }, 100)
+      return () => clearInterval(id)
+    }
+  })
+
   const nextChallenge = () => {
     console.log('next')
 
     currentChallengeIndex++
+    // Start stopwatch right after first challenge is completed (i.e., we move from index 0 -> 1)
+    if (currentChallengeIndex === 1 && startTime == null) {
+      startTime = Date.now()
+    }
     if (currentChallengeIndex >= challenges.length) {
       done = true
+      if (startTime && !endTime) endTime = Date.now()
       for (const ms of [0, 200, 400, 800, 1000]) {
         setTimeout(() => {
           jsConfetti.addConfetti({
@@ -97,3 +127,24 @@
 {:else}
   <div class="done-message">All challenges completed!</div>
 {/if}
+
+{#if startTime}
+  <div class="stopwatch">{formatElapsed(elapsed)}</div>
+{/if}
+
+<style>
+  .stopwatch {
+    position: fixed;
+    top: 8px;
+    right: 12px;
+    font: 600 14px/1.1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    user-select: none;
+  }
+</style>
