@@ -5,6 +5,7 @@
 </script>
 
 <svelte:head>
+	<title>Hyperbolic Pro Plus Max Ultra 7</title>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
