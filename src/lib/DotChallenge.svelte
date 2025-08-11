@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { randomHDRColorImage } from '$lib/hdr'
   import { onMount } from 'svelte'
+  import { randomColor } from '$lib/color'
 
   const { onNext } = $props()
 
-  const hdrImage = randomHDRColorImage()
+  const color = randomColor()
 
   let windowObj: Window | null = $state(null)
   onMount(() => {
@@ -13,9 +13,9 @@
 
   const cssFilters = [
     'brightness(0.7)',
-    'brightness(1.3)',
-    'hue-rotate(14deg)',
-    'hue-rotate(-14deg)',
+    'brightness(1.4)',
+    'hue-rotate(10deg)',
+    'hue-rotate(-10deg)',
   ]
   const cssFilter = cssFilters[Math.floor(Math.random() * cssFilters.length)]
 
@@ -38,7 +38,7 @@
         <div
           class="dot"
           style="
-            background-image: url({hdrImage});
+            background-color: {color};
             top: {rowIdx * 63 + 10}px;
             left: {colIdx * 62 + 10}px;
           "

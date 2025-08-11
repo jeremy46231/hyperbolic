@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { randomHDRColorImage } from '$lib/hdr'
+  import { randomColor } from '$lib/color'
 
   const defaultParagraph = `High dynamic range color perception is a playful test of subtle luminance and chroma differences hidden in a vibrant spectrum.`
   const { onNext, paragraph = defaultParagraph } = $props()
-
-  const hdrImage = randomHDRColorImage()
 
   // Pick a random word index
   const words = paragraph.split(' ')
@@ -12,12 +10,14 @@
 
   // Slight variants to apply to the target span so the player must locate it
   const variants = [
-    'filter: brightness(1.2);',
+    'filter: brightness(1.3);',
     'filter: brightness(0.8);',
-    'filter: hue-rotate(12deg);',
-    'filter: hue-rotate(-12deg);'
+    'filter: hue-rotate(10deg);',
+    'filter: hue-rotate(-10deg);'
   ]
   const variant = variants[Math.floor(Math.random() * variants.length)]
+
+  const color = randomColor()
 
   const handleClick = (idx: number) => {
     if (idx === targetIndex) {
@@ -31,7 +31,7 @@
     <button
       type="button"
       class="word {i === targetIndex ? 'target' : ''}"
-      style="background-image: url({hdrImage}); {i === targetIndex ? variant : ''}"
+      style="color: {color}; {i === targetIndex ? variant : ''}"
       onclick={() => handleClick(i)}
     >{word}</button>{#if i < words.length - 1}&nbsp;{/if}
   {/each}
@@ -48,8 +48,6 @@
   }
   .word {
     cursor: pointer;
-    background-size: cover;
-    background-position: center;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

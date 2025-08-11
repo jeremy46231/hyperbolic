@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { randomHDRColorImage } from '$lib/hdr'
   import JSConfetti from 'js-confetti'
   import { onMount } from 'svelte'
+  import { randomColor } from '$lib/color'
 
   const { onNext } = $props()
 
-  const hdrImage = randomHDRColorImage()
+  const squareCount = 6
+  const color = randomColor()
 
   let jsConfetti: JSConfetti
   onMount(() => {
@@ -22,13 +23,12 @@
 
   const cssFilters = [
     'filter: brightness(0.8);',
-    'filter: brightness(1.2);',
+    'filter: brightness(1.3);',
     'filter: hue-rotate(10deg);',
     'filter: hue-rotate(-10deg);',
   ]
   const cssFilter = cssFilters[Math.floor(Math.random() * cssFilters.length)]
 
-  const squareCount = 6
   const correctSquare = Math.floor(Math.random() * squareCount)
 
   let disabled = $state(false)
@@ -48,9 +48,9 @@
     {#each Array(squareCount) as _, i}
       <button
         class="square"
-        style="background-image: url({hdrImage}); {disabled ? 'opacity: 0.5;' : ''} {i === correctSquare
-          ? cssFilter
-          : ''}"
+        style="background-color: {color}; {disabled
+          ? 'opacity: 0.5;'
+          : ''} {i === correctSquare ? cssFilter : ''}"
         aria-label="idek"
         onclick={() => {
           if (i === correctSquare) {
