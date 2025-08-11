@@ -39,7 +39,7 @@ const colors = [
   ['blue', '#008cffff'],
   ['blurple', '#5c4f8f'],
   ['purple', '#b300ffff'],
-  ['pink', '#ff69b4ff']
+  ['pink', '#ff69b4ff'],
 ]
 
 for (const [name, hex] of colors) {
