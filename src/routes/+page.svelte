@@ -1,7 +1,7 @@
 <script lang="ts">
   import SpotChallenge from '$lib/SpotChallenge.svelte'
   import SquareChallenge from '$lib/SquareChallenge.svelte'
-  import DotChallenge from '$lib/DotChallenge.svelte';
+  import DotChallenge from '$lib/DotChallenge.svelte'
   import JSConfetti from 'js-confetti'
   import { onMount } from 'svelte'
 
@@ -13,13 +13,16 @@
       component: SpotChallenge,
     },
     {
-      component: DotChallenge
-    }
+      component: DotChallenge,
+    },
   ]
 
   let jsConfetti: JSConfetti
   onMount(() => {
     jsConfetti = new JSConfetti()
+    return () => {
+      jsConfetti.destroyCanvas()
+    }
   })
 
   let currentChallengeIndex = $state(0)
@@ -29,12 +32,17 @@
 
   const nextChallenge = () => {
     console.log('next')
-    for (let i = 0; i <= 1 + 3 * currentChallengeIndex; i++) {
-      jsConfetti.addConfetti()
-    }
+
     currentChallengeIndex++
     if (currentChallengeIndex >= challenges.length) {
       done = true
+      jsConfetti.addConfetti({
+        confettiNumber: 10_000,
+      })
+    } else {
+      jsConfetti.addConfetti({
+        confettiNumber: 100 + 400 * currentChallengeIndex,
+      })
     }
   }
 </script>
