@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { randomHDRColorImage } from '$lib/hdr'
   import { onMount } from 'svelte'
+  import { randomColor } from '$lib/color'
 
   const { onNext } = $props()
 
-  const hdrImage = randomHDRColorImage()
+  // Use a single random background color instead of an HDR image
+  const backgroundColor = randomColor()
 
   let windowObj: Window | null = $state(null)
   onMount(async () => {
@@ -25,17 +26,7 @@
   }
 </script>
 
-<div class="container">
-  <img
-    src={hdrImage}
-    alt=""
-    style="
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    "
-  />
+<div class="container" style="background-color: {backgroundColor};">
   {#if windowObj}
     <button
       class="dot"

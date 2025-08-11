@@ -11,21 +11,21 @@ import blurple from '$lib/assets/hdr/blurple.avif'
 import purple from '$lib/assets/hdr/purple.avif'
 import pink from '$lib/assets/hdr/pink.avif'
 
-export const hdrColorImages = [
-  red,
-  orange,
-  gold,
-  yellow,
-  yellowgreen,
-  green,
-  bluegreen,
-  cyan,
-  blue,
-  // blurple,
-  purple,
-  pink
-]
-export function randomHDRColorImage() {
-  const randomIndex = Math.floor(Math.random() * hdrColorImages.length)
-  return hdrColorImages[randomIndex]
-}
+// export const hdrColorImages = [
+//   red,
+//   orange,
+//   gold,
+//   yellow,
+//   yellowgreen,
+//   green,
+//   bluegreen,
+//   cyan,
+//   blue,
+//   // blurple,
+//   purple,
+//   pink
+// ]
+// export function randomHDRColorImage() {
+//   const randomIndex = Math.floor(Math.random() * hdrColorImages.length)
+//   return hdrColorImages[randomIndex]
+// }
