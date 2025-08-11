@@ -25,6 +25,7 @@
     "wrangler": "^4.28.1"
   },
   "dependencies": {
-    "@types/bun": "^1.2.20"
+    "@types/bun": "^1.2.20",
+    "js-confetti": "^0.12.0"
   }
 }
