@@ -12,10 +12,10 @@
   })
 
   const cssFilters = [
-    'brightness(0.7)',
-    'brightness(1.4)',
-    'hue-rotate(10deg)',
-    'hue-rotate(-10deg)',
+    'brightness(0.5)',
+    'brightness(1.7)',
+    'hue-rotate(23deg)',
+    'hue-rotate(-23deg)',
   ]
   const cssFilter = cssFilters[Math.floor(Math.random() * cssFilters.length)]
 

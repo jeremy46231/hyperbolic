@@ -48,7 +48,7 @@
       component: TextChallenge,
       props: {
         paragraph:
-          "As an employee of the hack club I really disapprove of chris walkers recent behaviour. On Friday August 1, I was walking with him from hq to the hcb office and I told him I didn’t like his picture of the toe. Chris immediately started chasing me down with this really pointy presentation pointer. I tried running all the way down shelburne road but he wouldn’t give up. Then I started asking for help and this kind lady pulled up to help. Chris kicked her out of the car and drove the car away. Later I saw several front porch forum posts (vermont’s local neighborhood app) about a rash driver running over kids in the parking lot. Honestly I don’t know what to do anymore. I want chris to write me an apology note and send me a rose",
+          'As an employee of the hack club I really disapprove of chris walkers recent behaviour. On Friday August 1, I was walking with him from hq to the hcb office and I told him I didn’t like his picture of the toe. Chris immediately started chasing me down with this really pointy presentation pointer. I tried running all the way down shelburne road but he wouldn’t give up. Then I started asking for help and this kind lady pulled up to help. Chris kicked her out of the car and drove the car away. Later I saw several front porch forum posts (vermont’s local neighborhood app) about a rash driver running over kids in the parking lot. Honestly I don’t know what to do anymore. I want chris to write me an apology note and send me a rose',
       },
     },
   ]
@@ -111,7 +111,7 @@
       }
     } else {
       jsConfetti.addConfetti({
-        confettiNumber: 100 + 400 * currentChallengeIndex,
+        confettiNumber: 50 + 600 * currentChallengeIndex,
       })
     }
   }
@@ -137,7 +137,11 @@
     position: fixed;
     top: 8px;
     right: 12px;
-    font: 600 14px/1.1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    font:
+      600 14px/1.1 ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
     background: rgba(0, 0, 0, 0.55);
     color: #fff;
     padding: 4px 8px;
