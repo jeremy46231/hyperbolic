@@ -103,9 +103,9 @@
       done = true
       if (startTime && !endTime) endTime = Date.now()
       ;(async () => {
-        for (let i = 1; i < 25; i++) {
+        while (true) {
           jsConfetti.addConfetti({
-            confettiNumber: 3_000,
+            confettiNumber: 1_000,
           })
           await new Promise((resolve) => setTimeout(resolve, 100))
         }
