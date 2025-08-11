@@ -48,9 +48,9 @@
     {#each Array(squareCount) as _, i}
       <button
         class="square"
-        style="background-image: url({hdrImage}); {disabled ? 'opacity: 0.5;' : ''} {i === correctSquare
-          ? cssFilter
-          : ''}"
+        style="background-image: url({hdrImage}); {disabled
+          ? 'opacity: 0.5;'
+          : ''} {i === correctSquare ? cssFilter : ''}"
         aria-label="idek"
         onclick={() => {
           if (i === correctSquare) {

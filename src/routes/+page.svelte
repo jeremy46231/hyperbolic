@@ -36,9 +36,13 @@
     currentChallengeIndex++
     if (currentChallengeIndex >= challenges.length) {
       done = true
-      jsConfetti.addConfetti({
-        confettiNumber: 10_000,
-      })
+      for (const ms of [0, 200, 400, 800, 1000]) {
+        setTimeout(() => {
+          jsConfetti.addConfetti({
+            confettiNumber: 2_000,
+          })
+        }, ms)
+      }
     } else {
       jsConfetti.addConfetti({
         confettiNumber: 100 + 400 * currentChallengeIndex,

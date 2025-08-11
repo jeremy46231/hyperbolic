@@ -29,7 +29,12 @@
   <img
     src={hdrImage}
     alt=""
-    style="position: absolute; width: 100vw; height: 100vh; object-fit: cover;"
+    style="
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    "
   />
   {#if windowObj}
     <button
@@ -57,7 +62,11 @@
   .dot {
     position: absolute;
     /* Darkening effect: a soft radial gradient of semi-transparent black. */
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 40%, rgba(0, 0, 0, 0) 100%);
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.03) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
     /* Multiply ensures it darkens regardless of underlying hue without adding a color cast. */
     mix-blend-mode: multiply;
     border: none;

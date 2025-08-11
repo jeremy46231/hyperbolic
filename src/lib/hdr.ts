@@ -21,7 +21,7 @@ export const hdrColorImages = [
   bluegreen,
   cyan,
   blue,
-  blurple,
+  // blurple,
   purple,
   pink
 ]
