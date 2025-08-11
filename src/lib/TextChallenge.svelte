@@ -1,10 +1,8 @@
 <script lang="ts">
   import { randomHDRColorImage } from '$lib/hdr'
 
-  const { onNext } = $props()
-
-  // Source paragraph (can extend/replace later)
-  const paragraph = `High dynamic range color perception is a playful test of subtle luminance and chroma differences hidden in a vibrant spectrum.`
+  const defaultParagraph = `High dynamic range color perception is a playful test of subtle luminance and chroma differences hidden in a vibrant spectrum.`
+  const { onNext, paragraph = defaultParagraph } = $props()
 
   const hdrImage = randomHDRColorImage()
 
@@ -14,10 +12,10 @@
 
   // Slight variants to apply to the target span so the player must locate it
   const variants = [
-    'filter: brightness(1.08);',
-    'filter: brightness(0.92);',
-    'filter: hue-rotate(8deg);',
-    'filter: hue-rotate(-8deg);'
+    'filter: brightness(1.2);',
+    'filter: brightness(0.8);',
+    'filter: hue-rotate(12deg);',
+    'filter: hue-rotate(-12deg);'
   ]
   const variant = variants[Math.floor(Math.random() * variants.length)]
 

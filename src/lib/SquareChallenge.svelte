@@ -21,8 +21,8 @@
   })
 
   const cssFilters = [
-    'filter: brightness(0.9);',
-    'filter: brightness(1.1);',
+    'filter: brightness(0.8);',
+    'filter: brightness(1.2);',
     'filter: hue-rotate(10deg);',
     'filter: hue-rotate(-10deg);',
   ]
@@ -48,9 +48,9 @@
     {#each Array(squareCount) as _, i}
       <button
         class="square"
-        style="background-image: url({hdrImage}); {disabled
-          ? 'opacity: 0.5;'
-          : ''} {i === correctSquare ? cssFilter : ''}"
+        style="background-image: url({hdrImage}); {disabled ? 'opacity: 0.5;' : ''} {i === correctSquare
+          ? cssFilter
+          : ''}"
         aria-label="idek"
         onclick={() => {
           if (i === correctSquare) {

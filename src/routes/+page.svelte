@@ -4,11 +4,20 @@
   import DotChallenge from '$lib/DotChallenge.svelte'
   import TextChallenge from '$lib/TextChallenge.svelte'
   import JSConfetti from 'js-confetti'
-  import { onMount } from 'svelte'
+  import { onMount, type Component } from 'svelte'
 
-  const challenges = [
+
+  const challenges: {
+    component: Component<{
+      onNext: () => void
+    }>
+    props?: Record<string, any>
+  }[] = [
     {
       component: TextChallenge,
+      props: {
+        paragraph: 'Can you find the word that\'s different from the others? It might be a little hard to see, but you can do it.'
+      }
     },
     {
       component: SquareChallenge,
@@ -57,7 +66,7 @@
 
 {#if !done}
   {#key currentChallengeIndex}
-    <currentChallenge.component onNext={nextChallenge} />
+    <currentChallenge.component onNext={nextChallenge} {...(currentChallenge.props ?? {})} />
   {/key}
 {:else}
   <div class="done-message">All challenges completed!</div>
