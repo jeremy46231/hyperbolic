@@ -12,8 +12,8 @@
   const variants = [
     'filter: brightness(1.3);',
     'filter: brightness(0.8);',
-    'filter: hue-rotate(10deg);',
-    'filter: hue-rotate(-10deg);'
+    'filter: hue-rotate(12deg);',
+    'filter: hue-rotate(-12deg);',
   ]
   const variant = variants[Math.floor(Math.random() * variants.length)]
 
@@ -32,8 +32,8 @@
       type="button"
       class="word {i === targetIndex ? 'target' : ''}"
       style="color: {color}; {i === targetIndex ? variant : ''}"
-      onclick={() => handleClick(i)}
-    >{word}</button>{#if i < words.length - 1}&nbsp;{/if}
+      onclick={() => handleClick(i)}>{word}</button
+    >{#if i < words.length - 1}&nbsp;{/if}
   {/each}
 </p>
 
@@ -42,8 +42,8 @@
     font-size: clamp(1.2rem, 2.2vw + 0.5rem, 2.75rem);
     font-family: system-ui, sans-serif;
     line-height: 1.3;
-    font-weight: 600;
-    padding: 6vh 8vw;
+    font-weight: 700;
+    padding: 4vh 4vw;
     margin: 0;
     user-select: none;
   }
@@ -52,7 +52,9 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    transition: filter 120ms ease, transform 120ms ease;
+    transition:
+      filter 120ms ease,
+      transform 120ms ease;
     display: inline-block;
     border: none;
     padding: 0;
