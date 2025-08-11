@@ -67,11 +67,4 @@
     border-radius: 50%;
     padding: 0;
   }
-
-  /* Fallback for browsers that don't support mix-blend-mode: slightly increase opacity */
-  @supports not (mix-blend-mode: multiply) {
-    .dot {
-      background: radial-gradient(circle, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0) 100%);
-    }
-  }
 </style>
