@@ -102,13 +102,14 @@
     if (currentChallengeIndex >= challenges.length) {
       done = true
       if (startTime && !endTime) endTime = Date.now()
-      for (const ms of [0, 200, 400, 800, 1000]) {
-        setTimeout(() => {
+      ;(async () => {
+        for (let i = 1; i < 25; i++) {
           jsConfetti.addConfetti({
-            confettiNumber: 2_000,
+            confettiNumber: 3_000,
           })
-        }, ms)
-      }
+          await new Promise((resolve) => setTimeout(resolve, 100))
+        }
+      })()
     } else {
       jsConfetti.addConfetti({
         confettiNumber: 50 + 600 * currentChallengeIndex,
