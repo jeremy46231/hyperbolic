@@ -6,7 +6,6 @@
   import JSConfetti from 'js-confetti'
   import { onMount, type Component } from 'svelte'
 
-
   const challenges: {
     component: Component<{
       onNext: () => void
@@ -15,9 +14,10 @@
   }[] = [
     {
       component: TextChallenge,
-      props: {
-        paragraph: 'Can you find the word that\'s different from the others? It might be a little hard to see, but you can do it.'
-      }
+      // props: {
+      //   paragraph:
+      //     "Can you find the word that's different from the others? It might be a little hard to see, but you can do it.",
+      // },
     },
     {
       component: SquareChallenge,
@@ -66,7 +66,10 @@
 
 {#if !done}
   {#key currentChallengeIndex}
-    <currentChallenge.component onNext={nextChallenge} {...(currentChallenge.props ?? {})} />
+    <currentChallenge.component
+      onNext={nextChallenge}
+      {...currentChallenge.props ?? {}}
+    />
   {/key}
 {:else}
   <div class="done-message">All challenges completed!</div>

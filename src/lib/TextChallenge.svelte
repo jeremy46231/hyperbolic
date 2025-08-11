@@ -40,6 +40,7 @@
 <style>
   .challenge-text {
     font-size: clamp(1.2rem, 2.2vw + 0.5rem, 2.75rem);
+    font-family: system-ui, sans-serif;
     line-height: 1.3;
     font-weight: 600;
     padding: 6vh 8vw;
