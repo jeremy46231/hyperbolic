@@ -34,10 +34,6 @@
 </div>
 
 <style>
-  :global(body) {
-    background-color: #3498db;
-  }
-
   .dot {
     position: absolute;
     background: radial-gradient(circle, #4699db 40%, transparent 100%);
